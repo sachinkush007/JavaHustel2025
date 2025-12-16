@@ -1,8 +1,5 @@
 package java8;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Set;
-import java.util.TreeSet;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class FindDuplicate {
@@ -12,6 +9,21 @@ public class FindDuplicate {
         Set<Integer> duplicates = new TreeSet<>();
         List<Integer> collect=list.stream().filter(e->!duplicates.add(e)).toList();
         return collect;
+    }
+
+    public static void findDuplicateCount(List<Integer> list){
+
+//        Map<Integer,Long> accourance=list.stream().collect(Collectors.groupingBy(e->e,Collectors.counting()));
+
+         Map<Integer,Long> accourance=list.stream().collect(Collectors.groupingBy(e->e,Collectors.counting()));
+
+        Set<Integer> duplicates=list.stream().collect(Collectors.groupingBy(e->e,Collectors.counting()))
+                .entrySet().stream()
+                .filter(e->e.getValue()>1)
+                .map(e->e.getKey())
+                .collect(Collectors.toSet());
+        System.out.println("Acc"+accourance);
+        System.out.println(duplicates);
     }
 
     public static void main(String[] args) {
@@ -26,5 +38,7 @@ public class FindDuplicate {
                 System.out.print(num+" ");
             }
         }
+        findDuplicateCount(list);
     }
+
 }

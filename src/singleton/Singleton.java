@@ -1,6 +1,6 @@
 package singleton;
 
-public class Singleton {
+public class Singleton implements Cloneable{
     private static volatile Singleton instance = null;
     int counter = 0;
 
@@ -21,7 +21,7 @@ public class Singleton {
     }
 
     public static String doSomething() {
-        return "Hi Babu";
+        return "Hi Baby";
     }
 
     public static void main(String[] args) {
@@ -33,4 +33,7 @@ public class Singleton {
 
     }
 
+    class test{
+
+    }
 }

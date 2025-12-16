@@ -17,9 +17,13 @@ public class ReduceMethod {
                 .reduce(Integer.MIN_VALUE, (a, b) -> a > b ? a : b);
         System.out.println(max);
 
-        Optional<String> longest = Stream.of("Java", "SpringBoot", "AWS")
+        Optional<String> longest = Stream.of("Java by James Gossling", "SpringBoot", "AWS")
                 .reduce((a, b) -> a.length() > b.length() ? a : b);
-        System.out.println(longest);
+        System.out.println(longest.get());
+
+        List<String>stringList=List.of("Java", "SpringBoot", "AWS");
+        Optional<String> s=stringList.stream().reduce((a,b)->a.length()>b.length()?a:b);
+        System.out.println(s.get());
     }
 
 }

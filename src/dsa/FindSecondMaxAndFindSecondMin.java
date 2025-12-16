@@ -3,6 +3,7 @@ package dsa;
 public class FindSecondMaxAndFindSecondMin {
 
     //Failed in If value are duplicate and -1 Values
+    // By Tap Academy
     public static int secondLargest(int[] arr) {
 
         if (arr.length < 2) {
@@ -54,8 +55,28 @@ public class FindSecondMaxAndFindSecondMin {
 
     public static void main(String[] args) {
         int[] a = {1, 4, 6, 3, 9, 5, 9};
-        int i = secondHighest(a);
-        System.out.println(i);
+        int secondHighest = secondHighest(a);
+//        System.out.println(secondHighest);
         System.out.println(secondLargest(a));
+
+        int max1=0;
+        int max2=0;
+        if(a[0]>a[1]){
+            max1=a[0];
+            max2=a[1];
+        }
+        else{
+            max1=a[1];
+            max2=a[0];
+        }
+        for(int i=2;i<a.length;i++){
+            if(a[i]>max1){
+                max2=max1;
+                max1=a[i];
+            } else if (a[i]>max2 && a[i]!=max1) {
+                max2=a[i];
+            }
+        }
+        System.out.println("Practice again"+max2);
     }
 }
