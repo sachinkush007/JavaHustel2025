@@ -9,7 +9,7 @@ public class CharacterFrequencyPrinter {
             if(Character.isDigit(s.charAt(i))){
 //                int count=s.charAt(i)-'0';
                 int count=Integer.parseInt(String.valueOf(s.charAt(i)));
-                System.out.println(count);
+//                System.out.println(count);
                 char ch=s.charAt(i+1);
 
                 for(int j=0;j<count;j++){
